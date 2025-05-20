@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSM Advocacia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --azul-royal: #002366;
+      --dourado: #c8aa6e;
+      --branco: #ffffff;
+      --cinza-claro: #f9f9f9;
+      --cinza-escuro: #1e1e1e;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--cinza-escuro);
+      background-color: var(--branco);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--azul-royal);
+      color: var(--branco);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: var(--branco);
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--dourado);
+    }
+
+    .banner {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1573164574392-e38d732d7f98') no-repeat center center/cover;
+      color: var(--branco);
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+
+    .banner h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1.2s ease forwards;
+    }
+
+    .banner p {
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--azul-royal);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--cinza-claro);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .depoimento {
+      font-style: italic;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: var(--azul-royal);
+      color: var(--branco);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .whatsapp-button {
+      background-color: #25d366;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      background-color: var(--azul-royal);
+      color: var(--branco);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .cta-section {
+      background-color: var(--dourado);
+      color: var(--cinza-escuro);
+      text-align: center;
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+      border-radius: 10px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 1rem;
+      color: var(--cinza-escuro);
+    }
+
+    .cta-section a {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: var(--azul-royal);
+      color: var(--branco);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-scale-balanced"></i> GSM Advocacia</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#areas">Áreas</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1>Excelência Jurídica com Inovação</h1>
+    <p>Resolvendo desafios legais com clareza, ética e modernidade</p>
+    <a class="whatsapp-button" href="https://wa.me/5511999999999" target="_blank">Fale Conosco no WhatsApp</a>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre o Escritório</h2>
+    <p>Com uma atuação focada em resultados, o GSM Advocacia oferece soluções jurídicas modernas e eficazes, priorizando o atendimento personalizado e a ética profissional.</p>
+  </section>
+
+  <section id="areas">
+    <h2>Áreas de Atuação</h2>
+    <div class="grid">
+      <div class="card"><i class="fas fa-user-shield"></i> Direito Civil</div>
+      <div class="card"><i class="fas fa-store"></i> Direito do Consumidor</div>
+      <div class="card"><i class="fas fa-briefcase"></i> Direito Trabalhista</div>
+      <div class="card"><i class="fas fa-file-invoice-dollar"></i> Direito Tributário</div>
+    </div>
+  </section>
+
+  <section id="equipe">
+    <h2>Nossa Equipe</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Dr. Geison Munhos</h3>
+        <p>OAB/SP XXXXX</p>
+        <p>Especialista em Direito Civil e Tributário</p>
+      </div>
+      <div class="card">
+        <h3>Dra. Nome da Advogada</h3>
+        <p>OAB/SP XXXXX</p>
+        <p>Especialista em Direito Trabalhista</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos">
+    <h2>Depoimentos</h2>
+    <div class="grid">
+      <div class="card depoimento">"Profissionais competentes e atenciosos. Recomendo muito o GSM Advocacia!" – Cliente A</div>
+      <div class="card depoimento">"Me ajudaram a resolver um problema complexo de forma rápida." – Cliente B</div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Precisa de suporte jurídico confiável?</h2>
+    <p>Fale com nossa equipe e agende uma consultoria especializada ainda hoje.</p>
+    <a href="#contato">Entrar em Contato</a>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <form action="https://formsubmit.co/seuemail@dominio.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="message" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GSM Advocacia. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const showOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const boxTop = sec.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) sec.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', showOnScroll);
+    showOnScroll();
+  </script>
+</body>
+</html>
